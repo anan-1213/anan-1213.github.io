@@ -957,11 +957,9 @@ function chanSeg(arr){
   return html;
 }
 
-/* ---- 明细行渠道单元格：本周有单 → 本周占比；本周无单但累计有 → 累计占比（灰化 + 标注） ---- */
+/* ---- 明细行渠道单元格：本周有单 → 本周占比；本周无单 → —（不做累计回退） ---- */
 function chanCellFB(wkVal,wkArr,ymVal,ymArr){
   if(typeof wkVal==='number'&&wkVal>0)return chanSeg(wkArr);
-  if(typeof ymVal==='number'&&ymVal>0)return '<div style="opacity:.72">'+chanSeg(ymArr)+
-    '<div style="font-size:9.5px;color:var(--muted);margin-top:1px">本周无单 · 按累计渠道</div></div>';
   return '<span class="muted">—</span>';
 }
 
